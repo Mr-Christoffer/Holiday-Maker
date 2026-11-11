@@ -107,4 +107,10 @@ public static class Input
             Console.WriteLine("Svara j eller n.");
         }
     }
+    public static void Pause() // Pause
+{
+    Console.WriteLine();
+    Console.Write("Tryck Enter för att fortsätta...");
+    Console.ReadKey();
+}
 }

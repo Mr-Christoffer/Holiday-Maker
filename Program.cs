@@ -1,6 +1,7 @@
 ﻿bool run = true;
 while (run)
 {
+    Console.Clear();
     System.Console.WriteLine("Holiday Maker");
     System.Console.WriteLine("-------------\nMENU");
     System.Console.WriteLine("1. Sök lediga rum");
@@ -15,11 +16,15 @@ while (run)
         case 1:
             System.Console.WriteLine("Sök lediga rum");
             break;
-        case 2: 
-            Customer? customer = await SelectCustomerAsync();
-            if (customer is not null)
-                Console.WriteLine($"Vald kund: {customer.Name}");
-            break;
+        case 2:
+            {
+                Customer? customer = await SelectCustomerAsync();
+                if (customer is not null)
+                    await CustomerMenuAsync(customer);
+                else
+                    Input.Pause();
+                break;
+            }
         case 3:
             System.Console.WriteLine("Registrera ny kund");
             break;
@@ -27,6 +32,43 @@ while (run)
             System.Console.WriteLine("Programmet avslutas");
             run = false;
             break;
+    }
+}
+
+async Task CustomerMenuAsync(Customer customer)
+{
+    bool inCustomerMenu = true;
+
+    while (inCustomerMenu)
+    {
+        Console.Clear();
+        System.Console.WriteLine($"=== {customer.Name} ({customer.Phone}) ===");
+        System.Console.WriteLine("1. Visa bokningar");
+        System.Console.WriteLine("2. Sök lediga rum och boka");
+        System.Console.WriteLine("3. Ändra antal personer");
+        System.Console.WriteLine("4. Avboka");
+        System.Console.WriteLine("0. Tillbaka till huvudmenyn");
+
+        int choice = Input.ReadInt("Välj: ", 0, 4);
+
+        switch (choice)
+        {
+            case 1:
+                Console.WriteLine("Visa bokningar – kommer snart");
+                break;
+            case 2:
+                Console.WriteLine("Sök och boka – kommer snart");
+                break;
+            case 3:
+                Console.WriteLine("Ändra antal personer – kommer snart");
+                break;
+            case 4:
+                Console.WriteLine("Avboka – kommer snart");
+                break;
+            case 0:
+                inCustomerMenu = false;
+                break;
+        }
     }
 }
 
@@ -66,3 +108,4 @@ async Task<Customer?> SelectCustomerAsync()
 
     return chosen;
 }
+
