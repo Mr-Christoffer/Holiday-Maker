@@ -1,23 +1,16 @@
-﻿using MySqlConnector;
-
-const string ListCustomersSql = """
-    SELECT id, name, telnr, email
-    FROM customers
-    ORDER BY name;
-    """;
-
-await using var conn = await Database.OpenAsync();
-await using var cmd = new MySqlCommand(ListCustomersSql, conn);
-await using var reader = await cmd.ExecuteReaderAsync();
-
-while (await reader.ReadAsync())
+﻿bool run = true;
+while (run)
 {
-    int id = reader.GetInt32("id");
-    string name = reader.GetString("name");
-    string telnr = reader.GetString("telnr");
-    string email = reader.IsDBNull(reader.GetOrdinal("email"))
-        ? "-"
-        : reader.GetString("email");
+    Console.Clear();
+    System.Console.WriteLine("Holiday Maker");
+    System.Console.WriteLine("-------------\nMENU");
+    System.Console.WriteLine("1. Sök lediga rum");
+    System.Console.WriteLine("2. Välj kund");
+    System.Console.WriteLine("3. Registrera ny kund");
+    System.Console.WriteLine("0. Avsluta");
 
-    Console.WriteLine($"{id}. {name}, {telnr}, {email}");
+    int opChoice = Input.ReadInt("Välj: ", 0, 3); // Operator has to choose a number betweeen 0 and 3
+
+    
+
 }
