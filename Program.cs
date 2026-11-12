@@ -5,7 +5,7 @@ while (run)
 {
     Console.Clear();
     System.Console.WriteLine("Holiday Maker");
-    System.Console.WriteLine("-------------\nMENU");
+    System.Console.WriteLine("-------------\nMENY");
     System.Console.WriteLine("1. Sök lediga rum");
     System.Console.WriteLine("2. Välj kund");
     System.Console.WriteLine("3. Registrera ny kund");

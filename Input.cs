@@ -26,7 +26,7 @@ public static class Input
         return string.IsNullOrEmpty(text) ? null : text;
     }
 
-    // Int within an intervall
+    // Int within an intervall. E.g. Menu-selection, select costumer.
     public static int ReadInt(string prompt, int min, int max)
     {
         while (true)

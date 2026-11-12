@@ -18,7 +18,7 @@ public static class HolidayQueries
         cmd.Parameters.AddWithValue("@search", search); // @search instead of raw string, works as protection againnst SQL-injections.
 
         var customers = new List<Customer>();
-        await using var reader = await cmd.ExecuteReaderAsync();
+        await using var reader = await cmd.ExecuteReaderAsync();  
 
         while (await reader.ReadAsync())
         {
