@@ -59,7 +59,7 @@ public static class Input
         }
     }
 
-    // Date in the format ÅÅÅÅ-MM-DD.
+    // Date in the format YYYY-MM-DD.
     public static DateOnly ReadDate(string prompt)
     {
         while (true)
