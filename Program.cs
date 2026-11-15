@@ -50,6 +50,10 @@ while (run)
         Console.WriteLine("Kunde inte nå databasen. Kontrollera att MySQL är igång.");
         Input.Pause();
     }
+    catch (InvalidOperationException ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 }
 
 async Task CustomerMenuAsync(Customer customer)
@@ -96,6 +100,10 @@ async Task CustomerMenuAsync(Customer customer)
         {
             Console.WriteLine("Kunde inte nå databasen. Kontrollera att MySQL är igång.");
             Input.Pause();
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine(ex.Message);
         }
     }
 }
