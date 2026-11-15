@@ -53,6 +53,7 @@ while (run)
     catch (InvalidOperationException ex)
     {
         Console.WriteLine(ex.Message);
+        Input.Pause();
     }
 }
 
@@ -104,6 +105,7 @@ async Task CustomerMenuAsync(Customer customer)
         catch (InvalidOperationException ex)
         {
             Console.WriteLine(ex.Message);
+            Input.Pause();
         }
     }
 }
